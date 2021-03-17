@@ -1,6 +1,7 @@
 ## Library calls/ set script variables -------------------------------------
 setwd("/Users/rmcelroy/Desktop/PEA/")
 library("clusterProfiler")
+library("pathview")
 
 WtMut <- read.csv("WtMut_PathwayData.csv")
 wtMut <- WtMut[,c("entrez","log2FoldChange","pvalue")]
@@ -22,5 +23,9 @@ go_enrich <- enrichGO(gene = genes,
                       readable = T,
                       ont = "BP",
                       pvalueCutoff = 0.05)
-dotplot(go_enrich)
-goplot(go_enrich, showCategory = 10)
+
+kk <- enrichKEGG(gene = genes,
+                 organism = 'hsa',
+                 pvalueCutoff = 0.2)
+
+wtMut_geneList <- wtMut_geneList[!duplicated(names(wtMut_geneList))]
