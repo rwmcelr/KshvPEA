@@ -31,7 +31,7 @@ PEA_ORA <- function(name, geneList, genes) {
     
     goBP <- pairwise_termsim(goBP)
     pdf(paste0(name,"_GO(BP)_MAP.pdf"), width = 8, height = 11)
-    BPmap <- emapplot(goBP) + ggtitle(paste0(name,"\nGO(BP) ORA Map"))
+    BPmap <- emapplot(goBP, cex_label_category = 0.5, cex_category = 0.5, min_edge = 0.75) + ggtitle(paste0(name,"\nGO(BP) ORA Map"))
     print(BPmap)
     dev.off()
     
@@ -58,7 +58,7 @@ PEA_ORA <- function(name, geneList, genes) {
     
     goMF <- pairwise_termsim(goMF)
     pdf(paste0(name,"_GO(MF)_MAP.pdf"), width = 8, height = 11)
-    MFmap <- emapplot(goMF) + ggtitle(paste0(name,"\nGO(MF) ORA Map"))
+    MFmap <- emapplot(goMF, cex_label_category = 0.5, cex_category = 0.5, min_edge = 0.75) + ggtitle(paste0(name,"\nGO(MF) ORA Map"))
     print(MFmap)
     dev.off()
     
@@ -85,7 +85,7 @@ PEA_ORA <- function(name, geneList, genes) {
     
     k2 <- pairwise_termsim(k)
     pdf(paste0(name,"_KEGG_Map.pdf"), width = 8, height = 11)
-    KEGGmap <- emapplot(k2) + ggtitle(paste0(name,"\nKEGG ORA Map"))
+    KEGGmap <- emapplot(k2, cex_label_category = 0.5, cex_category = 0.5, min_edge = 0.5) + ggtitle(paste0(name,"\nKEGG ORA Map"))
     print(KEGGmap)
     dev.off()
   }
@@ -105,7 +105,7 @@ PEA_ORA <- function(name, geneList, genes) {
     
     wiPath <- pairwise_termsim(wiPath)
     pdf(paste0(name,"_WikiPathways_Map.pdf"), width = 8, height = 11)
-    wiMap <- emapplot(wiPath) + ggtitle(paste0(name,"\nWikiPathways ORA Map"))
+    wiMap <- emapplot(wiPath, cex_label_category = 0.5, cex_category = 0.5, min_edge = 0.5) + ggtitle(paste0(name,"\nWikiPathways ORA Map"))
     print(wiMap)
     dev.off()
   }
@@ -125,7 +125,7 @@ PEA_ORA <- function(name, geneList, genes) {
     
     reactome <- pairwise_termsim(reactome)
     pdf(paste0(name,"_Reactome_Map.pdf"), width = 8, height = 11)
-    reactMap <- emapplot(reactome) + ggtitle(paste0(name,"\nReactome ORA Map"))
+    reactMap <- emapplot(reactome, cex_label_category = 0.5, cex_category = 0.5, min_edge = 0.75) + ggtitle(paste0(name,"\nReactome ORA Map"))
     print(reactMap)
     dev.off()
   }
